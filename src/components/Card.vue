@@ -28,9 +28,11 @@ export default {
 
   &--title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background: #40fa40;
+    border-radius: 5px;
     margin: 0;
   }
 

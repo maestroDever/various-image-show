@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    images: () => [],
+    images: [],
     loading: false
   },
   mutations: {
