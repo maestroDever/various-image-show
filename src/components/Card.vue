@@ -1,7 +1,7 @@
 <template>
   <article class="card" :class="{ favorite: image.favourite }">
     <h1 class="card--title">{{ image.name }}</h1>
-    <Star class="star" v-if="image.favourite" />
+    <Star class="star" v-if="image.favourite && showStar" />
     <figure class="card--image">
       <img
         :src="`https://portal-tb.lynxx.co/api-test/image/${image.id}`"
@@ -19,6 +19,10 @@ export default {
     image: {
       type: Object,
       required: true
+    },
+    showStar: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
