@@ -17,6 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Satisfy");
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,5 +50,13 @@ export default {
       background: darken(#5492eb, 20);
     }
   }
+}
+
+h1.title {
+  font-family: Satisfy;
+  font-size: 50px;
+  text-align: center;
+  color: black;
+  margin: 1rem;
 }
 </style>

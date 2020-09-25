@@ -92,7 +92,6 @@ export default {
 .container {
   width: 70%;
   margin: 0 auto;
-  border: 2px solid #bbb;
 
   @media screen and (max-width: 768px) {
     width: 100%;
