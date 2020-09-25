@@ -2,7 +2,12 @@
   <section class="list">
     <h2>Find all images below</h2>
     <div class="list__container">
-      <div class="list--item" v-for="image in images" :key="image.id">
+      <div
+        class="list--item"
+        v-for="(image, index) in images"
+        :key="image.id"
+        @click="$emit('click', index)"
+      >
         <img
           class="list--item__img"
           :src="`https://portal-tb.lynxx.co/api-test/image/${image.id}`"
@@ -10,7 +15,7 @@
         />
 
         <div class="list--item__details">
-          <p class="list--item__details--title">{{ image.name }}</p>
+          <h3 class="list--item__details--title">{{ image.name }}</h3>
           <p class="list--item__details--subtitle">
             {{ image.resolution | showResolution }}
           </p>
@@ -115,9 +120,6 @@ body {
   );
   opacity: 0;
   transition: 350ms opacity;
-}
-.list--item__details img {
-  margin: 0 5px;
-  width: 20px;
+  color: #f9e809;
 }
 </style>

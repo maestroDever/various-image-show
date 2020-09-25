@@ -32,7 +32,7 @@
         </ul>
       </div>
     </div>
-    <list-view :images="images" />
+    <list-view :images="images" @click="slideTo($event)" />
   </div>
 </template>
 
