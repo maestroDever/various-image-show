@@ -1,6 +1,7 @@
 <template>
   <article class="card" :class="{ favorite: image.favourite }">
     <h1 class="card--title">{{ image.name }}</h1>
+    <Star class="star" v-if="image.favourite" />
     <figure class="card--image">
       <img
         :src="`https://portal-tb.lynxx.co/api-test/image/${image.id}`"
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Star from "./Star.vue";
 export default {
   name: "ImageCard",
   props: {
@@ -18,6 +20,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  components: {
+    Star
   }
 };
 </script>
@@ -42,6 +47,13 @@ export default {
     img {
       width: 100%;
     }
+  }
+
+  .star {
+    width: 36px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
   }
 }
 </style>

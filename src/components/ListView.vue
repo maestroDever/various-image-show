@@ -8,12 +8,12 @@
         :key="image.id"
         @click="$emit('click', index)"
       >
+        <Star class="favorite-star" v-if="image.favourite" />
         <img
           class="list--item__img"
           :src="`https://portal-tb.lynxx.co/api-test/image/${image.id}`"
           :alt="image.name"
         />
-
         <div class="list--item__details">
           <h3 class="list--item__details--title">{{ image.name }}</h3>
           <p class="list--item__details--subtitle">
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import Star from "./Star.vue";
 export default {
   name: "ListView",
   props: {
@@ -33,6 +34,9 @@ export default {
       type: Array,
       default: () => []
     }
+  },
+  components: {
+    Star
   },
   filters: {
     showResolution(data) {
@@ -92,7 +96,7 @@ body {
 }
 
 .list__container:hover .list--item:hover {
-  transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.1);
   opacity: 1;
 }
 
@@ -121,5 +125,12 @@ body {
   opacity: 0;
   transition: 350ms opacity;
   color: #f9e809;
+}
+
+.favorite-star {
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 </style>
