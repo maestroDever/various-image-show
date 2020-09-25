@@ -1,42 +1,50 @@
 <template>
-  <div class="container">
-    <div class="carousel">
-      <div class="carousel-prev" @click="prev">
-        &larr;
-      </div>
-      <div class="carousel-next" @click="next">
-        &rarr;
-      </div>
-      <ul class="carousel-pagination">
-        <li
-          class="carousel-bullet"
-          @click="slideTo(index)"
-          v-for="(image, index) in images"
-          :key="image.id"
-          :class="{ 'active-bullet': index == currentIndex }"
-        ></li>
-      </ul>
-      <ul class="carousel-container" :style="{ width: `${100 * totalItems}%` }">
-        <li
-          class="carousel-item"
-          v-for="image in images"
-          :key="image.id"
-          :style="{ width: `${percent}%` }"
+  <div class="wrapper">
+    <div class="container">
+      <div class="carousel">
+        <div class="carousel-prev" @click="prev">
+          &larr;
+        </div>
+        <div class="carousel-next" @click="next">
+          &rarr;
+        </div>
+        <ul class="carousel-pagination">
+          <li
+            class="carousel-bullet"
+            @click="slideTo(index)"
+            v-for="(image, index) in images"
+            :key="image.id"
+            :class="{ 'active-bullet': index == currentIndex }"
+          ></li>
+        </ul>
+        <ul
+          class="carousel-container"
+          :style="{ width: `${100 * totalItems}%` }"
         >
-          <Card :image="image" />
-        </li>
-      </ul>
+          <li
+            class="carousel-item"
+            v-for="image in images"
+            :key="image.id"
+            :style="{ width: `${percent}%` }"
+          >
+            <Card :image="image" />
+          </li>
+        </ul>
+      </div>
     </div>
+    <list-view :images="images" />
   </div>
 </template>
 
 <script>
 import Card from "./Card.vue";
+import ListView from "./ListView.vue";
 
 export default {
   name: "Carousel",
   components: {
-    Card
+    Card,
+    ListView
   },
   props: {
     images: {
